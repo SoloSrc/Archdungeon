@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkn2kyoctvk8"]
+
+[ext_resource type="PackedScene" uid="uid://dtebnslws3oq8" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/torch.fbx" id="1_xxbq8"]
+[ext_resource type="Script" uid="uid://csrb35aode0is" path="res://scripts/flickering_light.gd" id="2_1p4ae"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1p4ae"]
+noise_type = 3
+frequency = 0.4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4kpi6"]
+noise = SubResource("FastNoiseLite_1p4ae")
+
+[node name="Torch" instance=ExtResource("1_xxbq8")]
+
+[node name="torch" parent="." index="0"]
+transform = Transform3D(100, 0, 0, 0, -22.3488, 97.4707, 0, -97.4707, -22.3488, 0, 0.4, -0.134898)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25296, -0.333149)
+light_color = Color(1, 0.803385, 0.40537, 1)
+light_energy = 2.5
+script = ExtResource("2_1p4ae")
+noise = SubResource("NoiseTexture2D_4kpi6")
+minimum_energy = 1.0

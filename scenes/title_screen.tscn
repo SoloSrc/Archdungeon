@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://dp3y0rmr7ejfm"]
+[gd_scene load_steps=17 format=3 uid="uid://dp3y0rmr7ejfm"]
 
 [ext_resource type="PackedScene" uid="uid://ymknpnnulpi2" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/sword_shield_gold.fbx" id="1_cs5ya"]
 [ext_resource type="PackedScene" uid="uid://ch48s1oqpvt1a" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/floor_tile_large.fbx" id="1_e54dn"]
+[ext_resource type="PackedScene" uid="uid://c3wchd61vv16w" path="res://ui/title_screen_ui.tscn" id="1_frs5l"]
 [ext_resource type="PackedScene" uid="uid://cr3wi0b1o2cuk" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/wall_corner.fbx" id="2_3yumr"]
 [ext_resource type="PackedScene" uid="uid://dud1rm6tp4v57" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/wall_half.fbx" id="3_cs5ya"]
 [ext_resource type="PackedScene" uid="uid://bw5qnwwuc671g" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/wall_doorway.fbx" id="4_mykxm"]
@@ -11,9 +12,22 @@
 [ext_resource type="PackedScene" uid="uid://dw7xawq70c0k2" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/chair.fbx" id="9_u26n3"]
 [ext_resource type="PackedScene" uid="uid://cfn8xeh0kraho" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/chest_gold.fbx" id="10_ib7db"]
 [ext_resource type="PackedScene" uid="uid://dw85ewby6wdrd" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/keg_decorated.fbx" id="11_frs5l"]
-[ext_resource type="PackedScene" uid="uid://dtebnslws3oq8" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/torch.fbx" id="12_ib7db"]
+[ext_resource type="PackedScene" uid="uid://bkn2kyoctvk8" path="res://props/torch.tscn" id="12_ib7db"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ib7db"]
+
+[sub_resource type="Sky" id="Sky_frs5l"]
+sky_material = SubResource("ProceduralSkyMaterial_ib7db")
+
+[sub_resource type="Environment" id="Environment_mynnq"]
+background_mode = 1
+sky = SubResource("Sky_frs5l")
+ambient_light_source = 2
+ambient_light_color = Color(0.408329, 0.408329, 0.408329, 1)
 
 [node name="TitleScreen" type="Node3D"]
+
+[node name="TitleScreenUI" parent="." instance=ExtResource("1_frs5l")]
 
 [node name="sword_shield_gold" parent="." instance=ExtResource("1_cs5ya")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.21851, 1.778, -5.5)
@@ -97,7 +111,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.89636, -0.138994, 0.420975, 0.0339324, 0.968305, 0.247456, -0.442027, -0.207525, 0.872666, 2.89605, 2.0526, 1.77509)
+transform = Transform3D(1, 0, 0, 0, 0.806744, 0.590901, 0, -0.590901, 0.806744, 0, 3.37944, 1.78911)
 
 [node name="table_medium_tablecloth_decorated_B" parent="." instance=ExtResource("8_mykxm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.35875, 0, -2.19657)
@@ -114,8 +128,11 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.926
 [node name="keg_decorated" parent="." instance=ExtResource("11_frs5l")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.29071, 0, -2.31489)
 
-[node name="torch" parent="." instance=ExtResource("12_ib7db")]
-transform = Transform3D(1, 0, 0, 0, 0.922086, -0.386985, 0, 0.386985, 0.922086, -1.75934, 2.09755, -5.64309)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mynnq")
 
-[node name="torch2" parent="." instance=ExtResource("12_ib7db")]
-transform = Transform3D(1, 0, 0, 0, 0.922086, -0.386985, 0, 0.386985, 0.922086, 1.49791, 2.09755, -5.64309)
+[node name="Torch" parent="." instance=ExtResource("12_ib7db")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.95074, 1.80175, -5.73188)
+
+[node name="Torch2" parent="." instance=ExtResource("12_ib7db")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.67599, 1.80175, -5.73188)

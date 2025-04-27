@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ArchDungeon"
-run/main_scene="uid://dp3y0rmr7ejfm"
+run/main_scene="uid://d01r6x5k1038k"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
