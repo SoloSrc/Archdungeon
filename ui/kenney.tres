@@ -1,0 +1,116 @@
+[gd_resource type="Theme" load_steps=18 format=3 uid="uid://chljfh72ffvth"]
+
+[ext_resource type="Texture2D" uid="uid://bqtsniuq2kvno" path="res://assets/kenney_ui-pack-adventure/Vector/button_grey.svg" id="1_6uprn"]
+[ext_resource type="Texture2D" uid="uid://c6giutyyk0v0f" path="res://assets/kenney_ui-pack-adventure/Vector/panel_brown_damaged.svg" id="2_kd1cq"]
+[ext_resource type="Texture2D" uid="uid://c2rgmet6dmy44" path="res://assets/kenney_ui-pack-adventure/Vector/panel_brown_damaged_dark.svg" id="3_ypcjj"]
+[ext_resource type="Texture2D" uid="uid://ccthni70f6w2w" path="res://assets/kenney_ui-pack-adventure/Vector/progress_transparent.svg" id="4_bkwgi"]
+[ext_resource type="Texture2D" uid="uid://bbqn0ar7rf8n7" path="res://assets/kenney_ui-pack-adventure/Vector/progress_blue.svg" id="5_768ld"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lhrxd"]
+texture = ExtResource("1_6uprn")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+modulate_color = Color(1, 1, 1, 0.458824)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rguou"]
+texture = ExtResource("1_6uprn")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_woxpr"]
+texture = ExtResource("1_6uprn")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+modulate_color = Color(1, 1, 1, 0.694118)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vyscs"]
+texture = ExtResource("1_6uprn")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+modulate_color = Color(0.475927, 0.475927, 0.475927, 0.690196)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t68fv"]
+texture = ExtResource("1_6uprn")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ty5mp"]
+texture = ExtResource("1_6uprn")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jka6c"]
+texture = ExtResource("1_6uprn")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wnemn"]
+texture = ExtResource("2_kd1cq")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ug3yy"]
+texture = ExtResource("3_ypcjj")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_psd8a"]
+texture = ExtResource("4_bkwgi")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cmht1"]
+texture = ExtResource("5_768ld")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c0vxc"]
+texture = ExtResource("2_kd1cq")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxTexture_lhrxd")
+Button/styles/hover = SubResource("StyleBoxTexture_rguou")
+Button/styles/normal = SubResource("StyleBoxTexture_woxpr")
+Button/styles/pressed = SubResource("StyleBoxTexture_vyscs")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxTexture_t68fv")
+CheckButton/styles/hover = SubResource("StyleBoxTexture_ty5mp")
+CheckButton/styles/hover_pressed = SubResource("StyleBoxTexture_jka6c")
+LineEdit/colors/caret_color = Color(0, 0, 0, 1)
+LineEdit/colors/clear_button_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/colors/selection_color = Color(0, 0, 0, 1)
+LineEdit/styles/normal = SubResource("StyleBoxTexture_wnemn")
+LineEdit/styles/read_only = SubResource("StyleBoxTexture_ug3yy")
+ProgressBar/styles/background = SubResource("StyleBoxTexture_psd8a")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_cmht1")
+TextEdit/colors/caret_color = Color(0, 0, 0, 1)
+TextEdit/colors/font_color = Color(0, 0, 0, 1)
+TextEdit/colors/font_selected_color = Color(1, 1, 1, 1)
+TextEdit/colors/selection_color = Color(0, 0, 0, 1)
+TextEdit/styles/normal = SubResource("StyleBoxTexture_c0vxc")
