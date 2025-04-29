@@ -45,7 +45,12 @@ layout_mode = 2
 
 [node name="Start" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+disabled = true
 text = "New Campaign"
+
+[node name="Tutorial" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play Tutorial"
 
 [node name="Settings" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

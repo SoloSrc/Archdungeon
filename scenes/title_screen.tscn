@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dp3y0rmr7ejfm"]
+[gd_scene load_steps=15 format=3 uid="uid://dp3y0rmr7ejfm"]
 
 [ext_resource type="PackedScene" uid="uid://ymknpnnulpi2" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/sword_shield_gold.fbx" id="1_cs5ya"]
 [ext_resource type="PackedScene" uid="uid://ch48s1oqpvt1a" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/floor_tile_large.fbx" id="1_e54dn"]
@@ -13,17 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cfn8xeh0kraho" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/chest_gold.fbx" id="10_ib7db"]
 [ext_resource type="PackedScene" uid="uid://dw85ewby6wdrd" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/keg_decorated.fbx" id="11_frs5l"]
 [ext_resource type="PackedScene" uid="uid://bkn2kyoctvk8" path="res://props/torch.tscn" id="12_ib7db"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ib7db"]
-
-[sub_resource type="Sky" id="Sky_frs5l"]
-sky_material = SubResource("ProceduralSkyMaterial_ib7db")
-
-[sub_resource type="Environment" id="Environment_mynnq"]
-background_mode = 1
-sky = SubResource("Sky_frs5l")
-ambient_light_source = 2
-ambient_light_color = Color(0.408329, 0.408329, 0.408329, 1)
+[ext_resource type="PackedScene" uid="uid://vqwjjav4t40k" path="res://scenes/dungeon_world_environment.tscn" id="13_mynnq"]
 
 [node name="TitleScreen" type="Node3D"]
 
@@ -128,8 +118,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.926
 [node name="keg_decorated" parent="." instance=ExtResource("11_frs5l")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.29071, 0, -2.31489)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_mynnq")
+[node name="WorldEnvironment" parent="." instance=ExtResource("13_mynnq")]
 
 [node name="Torch" parent="." instance=ExtResource("12_ib7db")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.95074, 1.80175, -5.73188)

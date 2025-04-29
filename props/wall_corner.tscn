@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2mnauk0gx2lf"]
+
+[ext_resource type="PackedScene" uid="uid://cr3wi0b1o2cuk" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/wall_corner.fbx" id="1_15pqm"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_15pqm"]
+points = PackedVector3Array(-0.0203175, -0.00508086, -0.00031746, 0.00464821, 0.000351789, 0.0396276, 0.000353244, 0.00464676, 0.0396253, -0.0203175, -0.00508086, 0.0403175, 0.0047619, -0.02, 0.000190476, 0.000353244, 0.00464676, 0.000374714, -0.00508086, -0.0203175, 0.0403175, -0.02, 0.0047619, 0.000190476, -0.02, 0.0047619, 0.0398095, 0.0047619, -0.02, 0.0398095, -0.00508086, -0.0203175, -0.00031746, 0.00464821, 0.000351789, 0.000372385)
+
+[node name="WallCorner" instance=ExtResource("1_15pqm")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall_corner" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall_corner/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_15pqm")

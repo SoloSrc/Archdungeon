@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://qcnvqnbt0dka"]
+
+[ext_resource type="PackedScene" uid="uid://dud1rm6tp4v57" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/wall_half.fbx" id="1_ifgfj"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sqka1"]
+points = PackedVector3Array(-0.00031746, -0.00531746, -0.00031746, 0.0191036, 0.005, 0.0385247, 0.0194024, -0.005, 0.0391223, 0.02, 0.00547619, -0.00031746, 0.000578898, 0.005, 0.0385247, 0.02, -0.00531746, -0.00031746, -0.00031746, 0.00547619, -0.00031746, 0.000280113, -0.005, 0.0391223)
+
+[node name="WallHalf" instance=ExtResource("1_ifgfj")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall_half" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall_half/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_sqka1")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwl1n4v41ctkl"]
+
+[ext_resource type="PackedScene" uid="uid://l6fosnvpo1jr" path="res://characters/rogue_graphics.tscn" id="1_0vayk"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qk0gk"]
+radius = 0.6
+height = 2.1
+
+[node name="Rogue" type="CharacterBody3D"]
+
+[node name="RogueGraphics" parent="." instance=ExtResource("1_0vayk")]
+
+[node name="PhysicalShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0)
+shape = SubResource("CapsuleShape3D_qk0gk")

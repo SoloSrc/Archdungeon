@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpcyy14chapop"]
+
+[ext_resource type="PackedScene" uid="uid://ch48s1oqpvt1a" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/floor_tile_large.fbx" id="1_nvnjh"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_u7sql"]
+points = PackedVector3Array(-0.0203175, -0.0203175, -0.00131727, 0.0203175, 0.0203175, 0.000587115, 0.0203175, 0.0203175, -0.00131727, -0.0203175, 0.0203175, 0.000587115, 0.0203175, -0.0203175, 0.000587115, 0.0203175, -0.0203175, -0.00131727, -0.0203175, 0.0203175, -0.00131727, -0.0203175, -0.0203175, 0.000587115)
+
+[node name="FloorTileLarge" instance=ExtResource("1_nvnjh")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor_tile_large" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor_tile_large/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_u7sql")
