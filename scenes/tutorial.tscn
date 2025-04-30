@@ -190,3 +190,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 transform = Transform3D(1, 0, 0, 0, 0.659254, 0.75192, 0, -0.75192, 0.659254, 0, 9.54329, 8.56111)
 script = ExtResource("18_cmspm")
 target = NodePath("../Rogue/CameraTarget")
+
+[connection signal="player_move_to" from="Camera3D" to="Rogue" method="_on_player_move_to"]

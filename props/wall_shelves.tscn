@@ -8,6 +8,7 @@ points = PackedVector3Array(-0.0101548, -0.00774681, 0.00984127, 0.0186911, 0.00
 [node name="WallShelves" instance=ExtResource("1_eejug")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="wall_shelves" index="0"]
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="wall_shelves/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_56gve")

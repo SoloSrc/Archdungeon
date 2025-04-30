@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 
 
 const SPEED = 5.0
@@ -26,3 +27,7 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+
+func _on_player_move_to(target_position: Vector3):
+	print("Player should now move to ", target_position)

@@ -5,10 +5,10 @@
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7jouw"]
 points = PackedVector3Array(-0.0101587, -0.0101587, -0.00115873, 0.0101587, 0.0101587, 0.000746032, 0.0101587, 0.0101587, -0.00115873, -0.0101587, 0.0101587, 0.000746032, 0.0101587, -0.0101587, 0.000746032, 0.0101587, -0.0101587, -0.00115873, -0.0101587, 0.0101587, -0.00115873, -0.0101587, -0.0101587, 0.000746032)
 
-[node name="FloorTileSmall" groups=["Walkable"] instance=ExtResource("1_txgw2")]
+[node name="FloorTileSmall" instance=ExtResource("1_txgw2")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="floor_tile_small" index="0"]
-collision_layer = 5
+[node name="StaticBody3D" type="StaticBody3D" parent="floor_tile_small" index="0" groups=["Walkable"]]
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor_tile_small/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_7jouw")
