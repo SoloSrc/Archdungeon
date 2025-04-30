@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dy2sjmx6nx2pe"]
+[gd_scene load_steps=22 format=3 uid="uid://dy2sjmx6nx2pe"]
 
 [ext_resource type="PackedScene" uid="uid://vqwjjav4t40k" path="res://scenes/dungeon_world_environment.tscn" id="1_6yjpi"]
 [ext_resource type="PackedScene" uid="uid://dx050pqwktixy" path="res://props/stairs_walled.tscn" id="2_6yjpi"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://cpn5ui4xqcmmo" path="res://props/wall_shelves.tscn" id="14_cmspm"]
 [ext_resource type="PackedScene" uid="uid://cw0lxruceg73c" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/banner_triple_red.fbx" id="15_ikfo1"]
 [ext_resource type="PackedScene" uid="uid://b4hrlndkoqs8s" path="res://props/key.tscn" id="16_dwom6"]
+[ext_resource type="PackedScene" uid="uid://dwl1n4v41ctkl" path="res://characters/rogue.tscn" id="17_vrdqu"]
+[ext_resource type="Script" uid="uid://dfsl48e2kk7xb" path="res://scripts/dungeon_camera.gd" id="18_cmspm"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_g2equ"]
 vertices = PackedVector3Array(-0.797619, 4.42426, -0.75, -0.797619, 1.42426, 3.5, 0.952381, 1.42426, 3.5, 0.952381, 4.42426, -0.75, -0.797619, 4.17426, 0.666666, 0.952381, 4.17426, 0.666666)
@@ -177,3 +179,14 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.9, 
 
 [node name="Key" parent="Room1" instance=ExtResource("16_dwom6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.30134, 5, -12.5063)
+
+[node name="Rogue" parent="." instance=ExtResource("17_vrdqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65835, 3.15083)
+
+[node name="CameraTarget" type="Node3D" parent="Rogue"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 0.659254, 0.75192, 0, -0.75192, 0.659254, 0, 9.54329, 8.56111)
+script = ExtResource("18_cmspm")
+target = NodePath("../Rogue/CameraTarget")

@@ -1,15 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwl1n4v41ctkl"]
+[gd_scene load_steps=6 format=3 uid="uid://dwl1n4v41ctkl"]
 
 [ext_resource type="PackedScene" uid="uid://l6fosnvpo1jr" path="res://characters/rogue_graphics.tscn" id="1_0vayk"]
+[ext_resource type="Script" uid="uid://bajird3rqu0lm" path="res://scripts/player.gd" id="1_ip2qp"]
+[ext_resource type="Script" uid="uid://bh14n3idcjc3n" path="res://scripts/state_machine.gd" id="2_qk0gk"]
+[ext_resource type="Script" uid="uid://q2guxo4tnho2" path="res://scripts/player/player_idle_state.gd" id="3_n8ksq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qk0gk"]
 radius = 0.6
 height = 2.1
 
 [node name="Rogue" type="CharacterBody3D"]
+script = ExtResource("1_ip2qp")
 
-[node name="RogueGraphics" parent="." instance=ExtResource("1_0vayk")]
+[node name="PlayerGraphics" parent="." instance=ExtResource("1_0vayk")]
 
 [node name="PhysicalShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0)
 shape = SubResource("CapsuleShape3D_qk0gk")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_qk0gk")
+metadata/_custom_type_script = "uid://bh14n3idcjc3n"
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_n8ksq")
+metadata/_custom_type_script = "uid://q2guxo4tnho2"
