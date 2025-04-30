@@ -3,6 +3,10 @@ class_name DungeonCamera
 
 
 const RAY_LENGTH = 1000
+const POINTER_C = preload("res://assets/kenney_cursor-pack/Vector/Outline/pointer_c.svg")
+const STEPS = preload("res://assets/kenney_cursor-pack/Vector/Outline/steps.svg")
+const HAND_OPEN = preload("res://assets/kenney_cursor-pack/Vector/Outline/hand_open.svg")
+const DOOR = preload("res://assets/kenney_cursor-pack/Vector/Outline/door.svg")
 
 
 signal player_move_to(target_position: Vector3)
@@ -22,25 +26,31 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	look_at(target.global_position)
 	global_position = target.global_position - offset
-
+	
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is not InputEventMouseButton:
+	if event is not InputEventMouse:
 		return
-	var mouse_event: InputEventMouseButton = event as InputEventMouseButton
-	if not mouse_event.pressed or not mouse_event.button_index == MOUSE_BUTTON_LEFT:
-		return
+	var mouse_event: InputEventMouse = event as InputEventMouse
 	var collision = get_mouse_click_collision(mouse_event)
 	if not collision or not collision["collider"]:
 		return
 	var collider: PhysicsBody3D = collision["collider"]
-	if not collider.is_in_group("Walkable"):
+	if collider.is_in_group("Walkable"):
+		Input.set_custom_mouse_cursor(STEPS)
+	else:
+		Input.set_custom_mouse_cursor(POINTER_C)
+		return
+	if not mouse_event is InputEventMouseButton:
+		return
+	var mouse_button_event: InputEventMouseButton = mouse_event as InputEventMouseButton
+	if not mouse_button_event.pressed:
 		return
 	var target_position: Vector3 = collision["position"]
 	player_move_to.emit(target_position)
 
 
-func get_mouse_click_collision(mouse_event: InputEventMouseButton) -> Dictionary:
+func get_mouse_click_collision(mouse_event: InputEventMouse) -> Dictionary:
 	var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 	var start: Vector3 = project_ray_origin(mouse_event.position)
 	var end: Vector3 = start + project_ray_normal(mouse_event.position) * RAY_LENGTH
