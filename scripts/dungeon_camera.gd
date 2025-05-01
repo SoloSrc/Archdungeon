@@ -19,14 +19,16 @@ var offset: Vector3
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	assert(target != null, "The camera target cannot be null")
+	look_at(target.global_position)
 	offset = target.global_position - global_position
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	look_at(target.global_position)
 	var target_position = target.global_position - offset
-	global_position = lerp(global_position, target_position, delta * 2)
+	global_position.x = target_position.x
+	global_position.z = target_position.z
+	global_position.y = lerp(global_position.y, target_position.y, delta * 2)
 
 
 func _unhandled_input(event: InputEvent) -> void:
