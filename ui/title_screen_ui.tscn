@@ -62,4 +62,5 @@ text = "Configurations
 layout_mode = 2
 text = "Quit to Desktop"
 
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
