@@ -14,6 +14,7 @@ signal player_interact_with(collider: Node3D, target_position: Vector3)
 
 @export var target: Node3D
 var offset: Vector3
+var is_mouse_pressed: bool
 
 
 # Called when the node enters the scene tree for the first time.
@@ -21,6 +22,7 @@ func _ready() -> void:
 	assert(target != null, "The camera target cannot be null")
 	look_at(target.global_position)
 	offset = target.global_position - global_position
+	is_mouse_pressed = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -46,10 +48,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	else:
 		Input.set_custom_mouse_cursor(POINTER_C)
 		return
-	if not mouse_event is InputEventMouseButton:
-		return
-	var mouse_button_event: InputEventMouseButton = mouse_event as InputEventMouseButton
-	if not mouse_button_event.pressed:
+	if mouse_event is InputEventMouseButton:
+		var mouse_button_event: InputEventMouseButton = mouse_event as InputEventMouseButton
+		if mouse_button_event.pressed:
+			is_mouse_pressed = true
+		else:
+			is_mouse_pressed = false
+	if not is_mouse_pressed:
 		return
 	var target_position: Vector3 = collision["position"]
 	player_interact_with.emit(collider, target_position)
