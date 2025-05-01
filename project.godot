@@ -25,6 +25,7 @@ mouse_cursor/custom_image="uid://v4bj252hv8av"
 
 Collectable="Items that can be picked up"
 Walkable="Objects where the player can walk in"
+Doorway="A connection between rooms"
 
 [layer_names]
 

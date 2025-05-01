@@ -9,7 +9,7 @@ const HAND_OPEN = preload("res://assets/kenney_cursor-pack/Vector/Outline/hand_o
 const DOOR = preload("res://assets/kenney_cursor-pack/Vector/Outline/door.svg")
 
 
-signal player_move_to(target_position: Vector3)
+signal player_interact_with(collider: Node3D, target_position: Vector3)
 
 
 @export var target: Node3D
@@ -28,6 +28,7 @@ func _process(delta: float) -> void:
 	var target_position = target.global_position - offset
 	global_position = lerp(global_position, target_position, delta * 2)
 
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event is not InputEventMouse:
 		return
@@ -38,6 +39,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	var collider: PhysicsBody3D = collision["collider"]
 	if collider.is_in_group("Walkable"):
 		Input.set_custom_mouse_cursor(STEPS)
+	elif collider.is_in_group("Doorway"):
+		Input.set_custom_mouse_cursor(DOOR)
 	else:
 		Input.set_custom_mouse_cursor(POINTER_C)
 		return
@@ -47,7 +50,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not mouse_button_event.pressed:
 		return
 	var target_position: Vector3 = collision["position"]
-	player_move_to.emit(target_position)
+	player_interact_with.emit(collider, target_position)
 
 
 func get_mouse_click_collision(mouse_event: InputEventMouse) -> Dictionary:

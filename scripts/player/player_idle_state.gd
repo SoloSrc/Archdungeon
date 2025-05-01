@@ -31,7 +31,7 @@ func update(_delta: float) -> void:
 		is_on_this_state = false
 
 
-func _on_player_new_target(target: Vector3) -> void:
+func _on_player_new_target(_target: Vector3) -> void:
 	if not is_on_this_state:
 		return
 	finished.emit("Moving")
