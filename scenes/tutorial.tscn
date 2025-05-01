@@ -1,7 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://dy2sjmx6nx2pe"]
+[gd_scene load_steps=24 format=3 uid="uid://dy2sjmx6nx2pe"]
 
 [ext_resource type="PackedScene" uid="uid://vqwjjav4t40k" path="res://scenes/dungeon_world_environment.tscn" id="1_6yjpi"]
+[ext_resource type="Script" uid="uid://yf8jpoxwtw5u" path="res://scripts/level.gd" id="1_ikfo1"]
 [ext_resource type="PackedScene" uid="uid://dx050pqwktixy" path="res://props/stairs_walled.tscn" id="2_6yjpi"]
+[ext_resource type="Script" uid="uid://c1vgc38c0yarl" path="res://scripts/room.gd" id="3_dwom6"]
 [ext_resource type="PackedScene" uid="uid://ok5cd6knumf6" path="res://props/floor_tile_small.tscn" id="3_gbqnl"]
 [ext_resource type="PackedScene" uid="uid://dpcyy14chapop" path="res://props/floor_tile_large.tscn" id="4_ckvwl"]
 [ext_resource type="PackedScene" uid="uid://dftissmvfr6mv" path="res://props/wall_sloped.tscn" id="5_ckvwl"]
@@ -31,11 +33,13 @@ vertices = PackedVector3Array(-6.05857, 8.36827, -2.04762, -4.05857, 8.36827, -2
 polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Array(6, 7, 3), PackedInt32Array(3, 7, 5), PackedInt32Array(8, 2, 7), PackedInt32Array(7, 2, 0), PackedInt32Array(7, 6, 8), PackedInt32Array(9, 11, 10), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 15), PackedInt32Array(17, 16, 11), PackedInt32Array(9, 19, 18), PackedInt32Array(11, 9, 17), PackedInt32Array(17, 9, 15), PackedInt32Array(17, 15, 12), PackedInt32Array(17, 12, 20), PackedInt32Array(9, 18, 15), PackedInt32Array(19, 22, 21), PackedInt32Array(23, 22, 24), PackedInt32Array(24, 22, 19), PackedInt32Array(24, 19, 9), PackedInt32Array(28, 27, 25), PackedInt32Array(25, 27, 26), PackedInt32Array(14, 29, 13), PackedInt32Array(13, 29, 30), PackedInt32Array(30, 29, 31), PackedInt32Array(31, 29, 32), PackedInt32Array(33, 21, 22), PackedInt32Array(34, 32, 35), PackedInt32Array(35, 32, 29), PackedInt32Array(35, 29, 33), PackedInt32Array(35, 33, 22), PackedInt32Array(39, 38, 36), PackedInt32Array(36, 38, 37), PackedInt32Array(30, 31, 40), PackedInt32Array(40, 31, 41), PackedInt32Array(42, 34, 35), PackedInt32Array(44, 43, 45), PackedInt32Array(45, 43, 46), PackedInt32Array(46, 43, 47), PackedInt32Array(47, 43, 48), PackedInt32Array(50, 49, 43), PackedInt32Array(43, 49, 41), PackedInt32Array(41, 49, 40), PackedInt32Array(40, 49, 51), PackedInt32Array(43, 41, 48), PackedInt32Array(52, 46, 53), PackedInt32Array(53, 46, 47), PackedInt32Array(53, 47, 42), PackedInt32Array(53, 42, 35), PackedInt32Array(57, 56, 54), PackedInt32Array(54, 56, 55), PackedInt32Array(60, 59, 58)]
 
 [node name="Tutorial" type="Node3D"]
+script = ExtResource("1_ikfo1")
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("1_6yjpi")]
 
 [node name="Room0" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_g2equ")
+script = ExtResource("3_dwom6")
 
 [node name="StairsWalled" parent="Room0" instance=ExtResource("2_6yjpi")]
 
@@ -45,8 +49,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 4, -1)
 [node name="FloorTileSmall2" parent="Room0" instance=ExtResource("3_gbqnl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 4, -1)
 
-[node name="WallDoorway" parent="Room0" instance=ExtResource("6_6yjpi")]
+[node name="WallDoorway" parent="Room0" node_paths=PackedStringArray("room") instance=ExtResource("6_6yjpi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -2)
+room = NodePath("../../Room1")
 
 [node name="WallSloped" parent="Room0" instance=ExtResource("5_ckvwl")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 4, 2)
@@ -67,7 +72,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.307556, 1.92426, 4.5)
 shape = SubResource("BoxShape3D_gbqnl")
 
 [node name="Room1" type="NavigationRegion3D" parent="."]
+process_mode = 4
+visible = false
 navigation_mesh = SubResource("NavigationMesh_tbcdj")
+script = ExtResource("3_dwom6")
 
 [node name="WallDoorway2" parent="Room1" instance=ExtResource("6_6yjpi")]
 transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 6, 4, -14)
@@ -191,4 +199,5 @@ transform = Transform3D(1, 0, 0, 0, 0.659254, 0.75192, 0, -0.75192, 0.659254, 0,
 script = ExtResource("18_cmspm")
 target = NodePath("../Rogue/CameraTarget")
 
+[connection signal="opened" from="Room0/WallDoorway" to="." method="_on_wall_doorway_opened"]
 [connection signal="player_interact_with" from="Camera3D" to="Rogue" method="_on_player_interact_with"]
