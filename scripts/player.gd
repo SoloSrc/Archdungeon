@@ -22,3 +22,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_player_move_to(target_position: Vector3):
 	new_target.emit(target_position)
+	var look_at_target = target_position
+	look_at_target.y = global_transform.origin.y
+	if look_at_target != global_transform.origin:
+		look_at(look_at_target, Vector3.UP)
