@@ -20,6 +20,10 @@ func _process(delta: float) -> void:
 	curr_state.update(delta)
 
 
+func _physics_process(delta: float) -> void:
+	curr_state.physics_update(delta)
+
+
 func _transition_to_next_state(target_state_path: String) -> void:
 	if not has_node(target_state_path):
 		printerr(owner.name + ": Has no node with path: " + target_state_path)

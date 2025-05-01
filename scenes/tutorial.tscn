@@ -20,7 +20,7 @@
 [ext_resource type="Script" uid="uid://dfsl48e2kk7xb" path="res://scripts/dungeon_camera.gd" id="18_cmspm"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_g2equ"]
-vertices = PackedVector3Array(-0.797619, 4.42426, -0.75, -0.797619, 1.42426, 3.5, 0.952381, 1.42426, 3.5, 0.952381, 4.42426, -0.75, -0.797619, 4.17426, 0.666666, 0.952381, 4.17426, 0.666666)
+vertices = PackedVector3Array(-0.797619, 4.42426, -0.75, -0.797619, 1.67426, 3.5, 0.952381, 1.67426, 3.5, 0.952381, 4.42426, -0.75, -0.797619, 4.42426, 0.666666, 0.952381, 4.42426, 0.666666)
 polygons = [PackedInt32Array(3, 5, 0), PackedInt32Array(0, 5, 4), PackedInt32Array(4, 5, 2), PackedInt32Array(4, 2, 1)]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gbqnl"]

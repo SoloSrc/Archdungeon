@@ -23,10 +23,10 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	look_at(target.global_position)
-	global_position = target.global_position - offset
-	
+	var target_position = target.global_position - offset
+	global_position = lerp(global_position, target_position, delta * 2)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is not InputEventMouse:

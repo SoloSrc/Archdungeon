@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwl1n4v41ctkl"]
+[gd_scene load_steps=7 format=3 uid="uid://dwl1n4v41ctkl"]
 
 [ext_resource type="PackedScene" uid="uid://l6fosnvpo1jr" path="res://characters/rogue_graphics.tscn" id="1_0vayk"]
 [ext_resource type="Script" uid="uid://bajird3rqu0lm" path="res://scripts/player.gd" id="1_ip2qp"]
 [ext_resource type="Script" uid="uid://bh14n3idcjc3n" path="res://scripts/state_machine.gd" id="2_qk0gk"]
 [ext_resource type="Script" uid="uid://q2guxo4tnho2" path="res://scripts/player/player_idle_state.gd" id="3_n8ksq"]
+[ext_resource type="Script" uid="uid://deoday2e0xqh0" path="res://scripts/player/player_moving_state.gd" id="5_baa7v"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qk0gk"]
 radius = 0.6
@@ -25,3 +26,7 @@ metadata/_custom_type_script = "uid://bh14n3idcjc3n"
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("3_n8ksq")
 metadata/_custom_type_script = "uid://q2guxo4tnho2"
+
+[node name="Moving" type="Node" parent="StateMachine"]
+script = ExtResource("5_baa7v")
+metadata/_custom_type_script = "uid://deoday2e0xqh0"
